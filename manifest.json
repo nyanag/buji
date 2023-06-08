@@ -8,7 +8,7 @@
         {
           "matches": ["https://us.shein.com/*"],
           "css": ["styles.css"],
-          "js" : ["contentScript.js"]
+          "js" : ["api.js"]
         }
       ],
       "permissions": [

@@ -1,0 +1,20 @@
+.product-info {
+    display: table;
+    width: 100%;
+  }
+  
+  .product-info-row {
+    display: table-row;
+  }
+  
+  .product-info-key,
+  .product-info-value {
+    display: table-cell;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .product-info-key {
+    font-weight: bold;
+  }
+  
