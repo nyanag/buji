@@ -1,5 +1,7 @@
 // Import the Cohere SDK to interact with the Cohere API
+
 import { CohereClient } from 'cohere-sdk';
+import fs from 'fs';
 
 // Define the access token for the Cohere API
 const accessToken = 'Hyw4gR2t74GYGEnz02jtxPGXWGyDOwXRVa6hzbJ7';
@@ -148,4 +150,43 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error('Error querying Cohere:', error);
       });
   }
+});
+
+
+// Import the Cohere SDK to interact with the Cohere API
+import { CohereClient } from 'cohere-sdk';
+
+// Define the access token for the Cohere API
+const accessToken = 'Hyw4gR2t74GYGEnz02jtxPGXWGyDOwXRVa6hzbJ7';
+
+// Initialize the Cohere client with the access token
+const cohereClient = new CohereClient(accessToken);
+
+// Function to read a text file and return its contents as a string
+// This function is asynchronous and won't block the execution of the rest of the script
+async function readFileAsString(filename) {
+  const response = await fetch(chrome.runtime.getURL(filename));
+  return response.text();
+}
+
+// Define the filename of the text file to read
+const filename = './query_text.txt';
+
+// Read the contents of the text file into a string
+const fileContent = readFileAsString(filename);
+
+// Execute a script in the context of the current tab
+chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+  var currentTab = tabs[0];
+  chrome.scripting.executeScript(
+    {
+      target: { tabId: currentTab.id },
+      files: ['content_script.js']
+    },
+    (injectionResults) => {
+      for (const frameResult of injectionResults) {
+        console.log(`We injected content_script.js into frame ${frameResult.frameId}`);
+      }
+    }
+  );
 });
