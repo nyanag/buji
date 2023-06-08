@@ -19,8 +19,8 @@
 }
 
 body {
-  width: 50rem;
-  height: 50rem;
+  width: 40rem;
+  height: 40rem;
   margin: 0 auto;
 }
 
@@ -36,8 +36,16 @@ body {
 .large-text {
   font-size: 10rem;
   margin-bottom: 1rem;
+  padding: 2rem;
+}
+
+.medium-text {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
 }
 
 .information {
   font-size: 1.5rem;
+  margin: 1rem;
 }
