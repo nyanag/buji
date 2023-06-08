@@ -1,0 +1,27 @@
+// TODO: add to manifest
+
+// Import the Cohere SDK and authenticate it with your API access token
+import { CohereClient } from 'cohere-sdk';
+
+const accessToken = 'YOUR_ACCESS_TOKEN';
+const cohereClient = new CohereClient(accessToken);
+
+// Function to handle the query
+async function queryCohere(query) {
+  try {
+    // Send the query to the Cohere API
+    const response = await cohereClient.completions.createCompletion(query);
+    const { choices } = response.data;
+    
+    // Access the generated completion
+    const completion = choices[0].text;
+    
+    // Process and use the generated completion as needed
+    console.log(completion);
+  } catch (error) {
+    console.error('Error querying Cohere:', error);
+  }
+}
+
+// Call the query function with your desired query
+queryCohere('What is Shein');
