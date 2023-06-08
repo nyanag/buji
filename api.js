@@ -24,4 +24,5 @@ async function queryCohere(query) {
 }
 
 // Call the query function with your desired query
-queryCohere('What is Shein');
+String queryText = 'Using the item composition and based on that information, rank from a scale of 0 to 10 (0 being the worst) for water usage and energy consumption during the production process';
+queryCohere(queryText);
