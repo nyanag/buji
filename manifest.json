@@ -1,23 +1,34 @@
 {
-    "version": "1.0", 
-    "manifest_version": 2, 
-    "name": "Buji",  
-    "description": "Climate Conscious Fashion – Making Shoppers aware", 
-    "author": "Ananya",
-    "content_scripts": [  
-        {
-          "matches": ["https://us.shein.com/*"],
-          "css": ["styles.css"],
-          "js" : ["api.js"]
-        }
-      ],
-      "permissions": [
-        "https://us.shein.com/*"
-      ],
-      "web_accessible_resources": [
-        "assets/*"
-      ],
-      "browser_action": {
-        "default_popup": "popup.html"
+  "version": "1.0",
+  "manifest_version": 2,
+  "name": "Buji",
+  "description": "Climate Conscious Fashion – Making Shoppers aware",
+  "author": "Ananya",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://us.shein.com/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
     }
+  },
+  "background": {
+    "scripts": ["popup.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://us.shein.com/*"],
+      "css": ["styles.css"],
+      "js": ["popup.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "assets/*"
+  ]
 }
