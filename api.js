@@ -3,7 +3,7 @@
 // Import the Cohere SDK and authenticate it with your API access token
 import { CohereClient } from 'cohere-sdk';
 
-const accessToken = 'YOUR_ACCESS_TOKEN';
+const accessToken = 'Hyw4gR2t74GYGEnz02jtxPGXWGyDOwXRVa6hzbJ7';
 const cohereClient = new CohereClient(accessToken);
 
 // Function to handle the query
