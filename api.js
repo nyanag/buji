@@ -2,9 +2,15 @@
 
 // Import the Cohere SDK and authenticate it with your API access token
 import { CohereClient } from 'cohere-sdk';
+import fs from 'fs';
 
 const accessToken = 'Hyw4gR2t74GYGEnz02jtxPGXWGyDOwXRVa6hzbJ7';
 const cohereClient = new CohereClient(accessToken);
+
+// Function to read a text file and return its contents as a string
+function readFileAsString(filename) {
+  return fs.readFileSync(filename, 'utf8');
+}
 
 // Function to handle the query
 async function queryCohere(query) {
@@ -23,6 +29,9 @@ async function queryCohere(query) {
   }
 }
 
-// Call the query function with your desired query
-String queryText = 'Using the item composition and based on that information, rank from a scale of 0 to 10 (0 being the worst) for water usage and energy consumption during the production process';
-queryCohere(queryText);
+// Read the text file as a string
+const filename = './query_text.txt';
+const fileContent = readFileAsString(filename);
+
+// Call the query function with the file content as the query
+queryCohere(fileContent);
